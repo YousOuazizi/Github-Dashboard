@@ -4,8 +4,7 @@ import { Typography, Box} from '@mui/material';
 
 
 function DisplayProfile({ data }) {
-    console.log(data)
-
+    
     return (
         <Box>
         <Box sx={{
@@ -14,9 +13,8 @@ function DisplayProfile({ data }) {
             m:3}}>
             <Avatar src={data.avatar_url} />
              <Typography sx={{
-                 background:"grey",
-                 borderTopRightRadius:"50px",
-                 borderBottomRightRadius:"50px",
+                 background:"#00000024",
+                 borderRadius:"30px",
                  p:1,
                  
              }}>{data.login}</Typography>

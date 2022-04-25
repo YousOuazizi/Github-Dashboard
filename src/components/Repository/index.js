@@ -19,13 +19,11 @@ const Repository = ()=>{
             getUserByName(userName),
             getReposByUserName(userName)
         ]).then(data=>{
-            console.log(data);
             setUser(data[0]);
             setRepos(data[1]);
         })
      
-    },[]);
-
+    });
 
     return(
     <Box sx={{
@@ -33,10 +31,12 @@ const Repository = ()=>{
     }}>
        {user &&  <DisplayProfile data={user}/>}
        {repos.map(repo=>{
-           return <Typography sx={{display:"flex",justifyContent:"center",p:1,m:1,cursor:"pointer"}} key={repo.id} onClick={()=>{navigate('./'+repo.name)}}> 
-           <InboxIcon sx={{mr:2}}/> 
-            {repo.name}
-           </Typography>
+           return <Box sx={{display:"flex",justifyContent:"center",p:1,m:1,cursor:"pointer"}}>
+                         <InboxIcon sx={{flex:"1",mr:2}}/> 
+                        <Typography sx={{flex:"1",display:"flex",justifyContent:"center"}} key={repo.id} onClick={()=>{navigate('./'+repo.name)}}>
+                            {repo.name}
+                        </Typography>
+                    </Box>
        })
     }
     </Box>
